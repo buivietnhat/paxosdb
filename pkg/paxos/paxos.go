@@ -12,19 +12,19 @@ package paxos
 //
 
 import (
-  "fmt"
-  "log"
-  "math/rand"
-  "net"
-  "net/rpc"
-  "os"
-  "pxdb/pkg/utils"
-  "sync"
-  "sync/atomic"
-  "syscall"
-  "time"
+	"fmt"
+	"log"
+	"math/rand"
+	"net"
+	"net/rpc"
+	"os"
+	"pxdb/pkg/utils"
+	"sync"
+	"sync/atomic"
+	"syscall"
+	"time"
 
-  . "pxdb/pkg/logger"
+	. "pxdb/pkg/logger"
 )
 
 type Fate int
@@ -136,7 +136,6 @@ func (px *Paxos) Decide(args *DecideArgs, reply *DecideReply) error {
 // is reached.
 //
 func (px *Paxos) Start(seq int, v interface{}) bool {
-  // Your code here.
   px.mu.Lock()
   defer px.mu.Unlock()
 
@@ -179,7 +178,6 @@ func (px *Paxos) updateValueResult(seq int, v interface{}) {
 // all instances <= seq.
 //
 func (px *Paxos) Done(seq int) {
-  // Your code here.
   px.mu.Lock()
   defer px.mu.Unlock()
 
@@ -222,7 +220,6 @@ func (px *Paxos) min() int {
 }
 
 func (px *Paxos) Status(seq int) (Fate, interface{}) {
-  // Your code here.
   px.mu.Lock()
   defer px.mu.Unlock()
 
